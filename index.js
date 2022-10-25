@@ -34,11 +34,12 @@ class Usuario {
     }
     getBookNames(){
         //retorna un array con solo los nombres del array de librops del usuario.
-        let bookNames = ['']
-        return  bookNames =  this.libros.titulo
+        let titulos = this.libros.map(e=> e.titulo)
+        console.log(titulos);
     }
 
 }
+// Punto 4: Crear un objeto llanmado usuario con valores arbitrarios e invocar todos sus metodos.
 let nuevoUsuario = new Usuario('Luciano', 'Coscia');
 nuevoUsuario.getfullName();
 nuevoUsuario.addMascota('gato');
@@ -47,7 +48,6 @@ nuevoUsuario.addMascota('perro');
 nuevoUsuario.countMascotas();
 nuevoUsuario.addBook('El Principito', 'Pepe argento');
 nuevoUsuario.addBook('Narnia', 'Pepe Wash');
+nuevoUsuario.getBookNames()
 
 
-
-// Punto 4: Crear un objeto llanmado usuario con valores arbitrarios e invocar todos sus metodos.
