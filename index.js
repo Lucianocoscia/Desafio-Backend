@@ -1,53 +1,45 @@
 class Usuario {
 
-    constructor (nombre, apellido){
+    constructor (nombre, apellido, libros = [], mascotas = []){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.libros = [];
-        this.mascotas = [];
+        this.libros = libros;
+        this.mascotas = mascotas;
     }
 
     getfullName(){
         //retorna el completo del usuario, utilizar template strings.
-        return console.log(`El nombre completo del usuario es ${this.nombre} ${this.apellido}`);
+        return `El nombre completo del usuario es ${this.nombre} ${this.apellido}`
 
     }
     addMascota(mascota){
         //recibe un nombre de masctoa y lo agrega al array de mascotas
         this.mascotas.push(mascota);
-        console.log(this.mascotas);
     }
     countMascotas(){
         //retorna la cantidad de mascotas q tiene el usuario
-        return console.log(this.mascotas.length);
+        return this.mascotas.length
     }
     addBook(titulo, autor){
         //recibe un string nombre y un string autor y debe agregar un objeto {nombre: string, autor: string} ala rray de libros 
-
-        let libroAgregado = {
-            titulo: titulo,
-            autor: autor
-        }
-
-        this.libros.push(libroAgregado);
-        console.log(this.libros);
+        this.libros.push({titulo, autor});
     }
     getBookNames(){
         //retorna un array con solo los nombres del array de librops del usuario.
-        let titulos = this.libros.map(e=> e.titulo)
-        console.log(titulos);
+        return this.libros.map(e=> e.titulo)
     }
 
 }
 // Punto 4: Crear un objeto llanmado usuario con valores arbitrarios e invocar todos sus metodos.
-let nuevoUsuario = new Usuario('Luciano', 'Coscia');
-nuevoUsuario.getfullName();
+let nuevoUsuario = new Usuario('Luciano', 'Coscia',[{titulo: 'Harry Potter', autor: 'Juan Perez'}], ['Perro'] );
+console.log(nuevoUsuario.getfullName());
+
 nuevoUsuario.addMascota('gato');
-nuevoUsuario.countMascotas();
-nuevoUsuario.addMascota('perro');
-nuevoUsuario.countMascotas();
-nuevoUsuario.addBook('El Principito', 'Pepe argento');
+// nuevoUsuario.addMascota('perro');
+console.log(nuevoUsuario.countMascotas());
+
+nuevoUsuario.addBook('La vida es Bella', 'Pepe Arroz');
 nuevoUsuario.addBook('Narnia', 'Pepe Wash');
-nuevoUsuario.getBookNames()
+console.log(nuevoUsuario.getBookNames());
 
 
